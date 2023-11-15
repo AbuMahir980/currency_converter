@@ -60,3 +60,27 @@ body {
     border-radius: 6px;
     padding: 12px;
 }
+
+#convertForm > button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(22, 10, 158, 0.973);
+    color: whitesmoke;
+    border: 0;
+    margin: 6px 0;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#convertResult {
+    width: 100%;
+    margin: 20px 0;
+    font-weight: 900;
+}
+
+#convertResult.error {
+    background-color: red;
+    color: white;
+    padding: 20px;
+}
