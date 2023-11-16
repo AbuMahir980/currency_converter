@@ -1,6 +1,4 @@
-const input = document.querySelector('input[type=text]');
-// const fromCurrency = document.querySelector('#fromCurrency')
-// const toCurrency = document.querySelector("#toCurrency")
+const input = document.querySelector('input');
 
 const btn = document.querySelector('button')
 
@@ -23,20 +21,31 @@ const getExchangeTo = async () => {
 	return newData.rates.ZAR;
   //19.8718
 };
-// getExchangeTo();
+// console.log(getExchangeTo());
 
-// console.log(getExchangeFrom())
-btn.addEventListener('click', async() => {
-  const results = input.va
-  // console.log(results)
-  // input.value = '';
 
-  const exchangeFrom = await getExchangeFrom();
-  const amount = `${exchangeFrom * results}`
+
+btn.addEventListener('click', async () => {
+
+  const amtVal = async () => {
+		const results = Number(input.value);
+		input.value = "";
+
+		const exchangeFrom = await getExchangeFrom();
+		const amount = `${exchangeFrom * results}`;
+    console.log(amount)
+		return amount;
+	};
+
+  const getAmtVal = amtVal();
   const exchangeTo = await getExchangeTo();
-  const exchangeRate = `${amount * exchangeTo}`
+  const exchangeRate = `${getAmtVal * exchangeTo}`
+
+  const convertResult = document.querySelector("#convertResult");
   convertResult.textContent = exchangeRate;
 })
+
+
 
 
 
