@@ -11,9 +11,6 @@ const getCurrencyRate = async (fromCurrency, toCurrency) => {
     const currencyConvertUrl = new URL(
 			"https://api.frankfurter.app/latest"
 		);
-    // const currencyConvertUrlTo = new URL(
-		// 	"https://api.frankfurter.app/latest?to=ZAR"
-		// );
 
     currencyConvertUrl.searchParams.append('from=USD', fromCurrency)
     currencyConvertUrl.searchParams.append("to=ZAR", toCurrency);
@@ -25,22 +22,64 @@ const getCurrencyRate = async (fromCurrency, toCurrency) => {
 };
 
 // getCurrencyRate();
+// const countries = {
+//     AUD: "Australian Dollar",
+//     BGN: "Bulgarian Lev",
+//     BRL: "Brazilian Real",
+//     CAD: "Canadian Dollar",
+//     CHF: "Swiss Franc",
+//     CNY: "Chinese Renminbi Yuan",
+//     CZK: "Czech Koruna",
+//     DKK: "Danish Krone",
+//     EUR: "Euro",
+//     GBP: "British Pound",
+//     HKD: "Hong Kong Dollar",
+//     HUF: "Hungarian Forint",
+//     IDR: "Indonesian Rupiah",
+//     ILS: "Israeli New Sheqel",
+//     INR: "Indian Rupee",
+//     ISK: "Icelandic Króna",
+//     JPY: "Japanese Yen",
+//     KRW: "South Korean Won",
+//     MXN: "Mexican Peso",
+//     MYR: "Malaysian Ringgit",
+//     NOK: "Norwegian Krone",
+//     NZD: "New Zealand Dollar",
+//     PHP: "Philippine Peso",
+//     PLN: "Polish Złoty",
+//     RON: "Romanian Leu",
+//     SEK: "Swedish Krona",
+//     SGD: "Singapore Dollar",
+//     THB: "Thai Baht",
+//     TRY: "Turkish Lira",
+//     USD: "United States Dollar",
+//     ZAR: "South African Rand"
+// }
+// const currencyKeys = [...Object.keys(countries)]
+// console.log(currencyKeys)
+// const appendToSelect = (selectElement, optionItem) => {
+//     const optionElement = document.createElement('option');
+//     const optionKeys = currencyKeys;
+//     optionItem = optionKeys
+//     optionElement.value = optionItem
+//     optionElement.textContent = optionItem;
 
-const appendToSelect = (selectElement, optionItem) => {
-    const optionElement = document.createElement('option');
-    optionElement.value = optionItem.code;
-    optionElement.textContent = optionItem.description;
+//     selectElement.appendChild(optionElement);
+// };
 
-    selectElement.appendChild(optionElement);
-};
+// appendToSelect();
 
-const populateSelectElement = (selectElement, optionList) => {
-  optionList.forEach(optionItem => {
-      appendOptionToSelect(selectElement, optionItem);
-  })
-};
+// // const populateSelectElement = (selectElement, optionList) => {
+// //   optionList.forEach(optionItem => {
+// //       appendOptionToSelect(selectElement, optionItem);
+// //   })
+// // };
 
 const setupCurrencies = async () => {
-      const fromCurrencyElem = document.querySelector('#from');
-      const toCurrencyElem = document.querySelector("#to");
+      const fromCurrencyElem = document.querySelector('#fromCurrency');
+      const toCurrencyElem = document.querySelector("#toCurrency");
+
+      const currOptions = await getCurrency();
+
+
 }
